@@ -1,0 +1,28 @@
+configuration {
+	modi: "drun";
+	case-sensitive: false;
+	cycle: true;
+	filter: "";
+	scroll-method: 0;
+	normalize-match: true;
+	show-icons: true;
+    icon-theme: "Papirus";
+	steal-focus: false;
+	matching: "normal";
+	tokenize: true;
+	terminal: "alacritty";
+	font: "Mono 12";
+	sort: false;
+	threads: 0;
+	click-to-exit: true;
+	drun-match-fields: "name,generic,exec,categories,keywords";
+	drun-display-format: "{name}";
+	drun-show-actions: false;
+	drun-url-launcher: "xdg-open";
+	drun-use-desktop-cache: false;
+	drun-reload-desktop-cache: false;
+	drun {
+		parse-user:   true;
+		parse-system: true;
+    }
+}
