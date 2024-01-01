@@ -3,34 +3,40 @@
 ##    ALIASES    ##
 ###################
 
+# Remap well-known commands
 alias df='df -h'
 alias vim='nvim'
 alias ls='eza --color=always'
+alias cmatrix='cmatrix -C blue'
 
+# Shortcuts
 alias rl='source ~/.bashrc'
 alias bt='bluetoothctl power on; bluetoothctl connect 00:16:94:3A:AD:81'
 alias btoff='bluetoothctl power off'
 alias clock='tty-clock -tBscC 6'
-alias cmatrix='cmatrix -C blue'
 alias fixmonitors='xrandr --output DP-2 --output HDMI-0 --left-of DP-2'
 alias fixmonitors3='xrandr --output DP-2 --output HDMI-0 --left-of DP-2 --output DP-5 --same-as DP-2 --scale-from 1920x1080'
+alias git-dotfiles='git --git-dir=$HOME/.dotfiles-git-bare-repo --work-tree=$HOME'
+
+# Pacman
 alias pacman_install='pacman -S'
 alias pacman_upgrade_all='pacman -Syu'
 alias pacman_remove='pacman -Rnsu'
 alias pacman_list_orphans='pacman -Qqdt'
 alias pacman_list_explicit='pacman -Qqet'
 alias pacman_package_info='pacman -Qii'
+
+# Scripts
 alias countdown="$HOME/scripts/countdown.sh"
 alias ytmd="$HOME/scripts/ytmd/ytmd.py"
+alias tags="$HOME/scripts/ytmd/tags.py"
+
+# SSH to Godel
 alias godel1='ssh -t root@godel "tmux new-session -A -s S1"'
 alias godel2='ssh -t root@godel "tmux new-session -A -s S2"'
 alias godel3='ssh -t root@godel "tmux new-session -A -s S3"'
 alias godel=godel1
-alias git-dotfiles='git --git-dir=$HOME/.dotfiles-git-bare-repo --work-tree=$HOME'
 
-# find_by_name filename.txt
-# find_by_name '*keyword*'
-alias find_by_name='find -name'
 
 ###################
 ##   FUNCTIONS   ##
