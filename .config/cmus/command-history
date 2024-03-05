@@ -1,0 +1,32 @@
+add ~/music
+update-cache -f
+clear
+add ~/music/
+set format_trackwin_va=%3n. %t%= (%a) %d 
+set format_trackwin_va=%3n. %t%= %d 
+update-cache
+u
+set format_trackwin_va=%3n. %t%= (%a) %y %d 
+set format_trackwin_va=%3n. %t (%a)%= %y %d 
+q
+load ~/music
+help
+clear -l
+set skip_track_info=false
+set skip_track_info=true
+set show_remaining_time=false
+set show_remaining_time
+set show_remaining_time false
+fset classical=genre="Classical"
+fset mp3=filename="*.mp3"
+set mouse=1
+set mouse=a
+wq
+set mouse=0
+set mouse=on
+r
+reload
+a ~/music
+add music
+add
+save

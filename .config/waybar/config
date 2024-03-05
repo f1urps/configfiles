@@ -1,0 +1,9 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-right": ["battery", "clock"],
+    "clock": {
+        "format": "{:%Y-%m-%d %I:%M %p}"
+    }
+}
