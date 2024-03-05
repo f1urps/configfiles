@@ -11,7 +11,7 @@ alias cmatrix='cmatrix -C blue'
 
 # Shortcuts
 alias rl='source ~/.bashrc'
-alias bt='bluetoothctl power on; bluetoothctl connect 00:16:94:3A:AD:81'
+alias bt='bluetoothctl power on; while ! bluetoothctl connect 00:16:94:3A:AD:81; do echo "Retrying in 1 second..."; sleep 1; done'
 alias btoff='bluetoothctl power off'
 alias clock='tty-clock -tBscC 6'
 alias fixmonitors='xrandr --output DP-2 --output HDMI-0 --left-of DP-2'
@@ -41,6 +41,11 @@ alias godel=godel1
 ###################
 ##   FUNCTIONS   ##
 ###################
+
+function wait {
+    cmd="$@"
+    read -p "[press enter to run '$cmd']" && eval "$cmd"
+}
 
 # Terminal screensavers
 ss(){

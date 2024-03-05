@@ -28,6 +28,9 @@ fi
 # Path
 export PATH="$PATH:$HOME/.local/bin"
 
+# Support Ctrl+x Ctrl-e in bash
+export EDITOR=nvim
+
 # Suppress pycache
 export PYTHONDONTWRITEBYTECODE=true
 
