@@ -1,9 +1,12 @@
 
-
 # Scripts
 set $multimonitor   ~/.config/sway/scripts/multimonitor.py
 set $launcher       ~/.config/sway/scripts/launcher.py
 set $killall        ~/.config/sway/scripts/killall.py
+set $startup        ~/.config/sway/scripts/startup.sh
+set $swaybar        ~/.config/sway/scripts/swaybar.sh
+
+exec $startup
 
 # Wallpaper
 set $wallpaper /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
@@ -36,7 +39,6 @@ input "type:keyboard" {
 # Idle configuration.
 # Idle after 5 hours (or manual lock keybinding is pressed)
 exec swayidle -w timeout 18000 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
-
 
 ###############
 # Keybindings #
@@ -194,25 +196,31 @@ mode "run" {
 }
 bindsym $mod+o mode "run"
 
+# Audio controls
+bindsym XF86AudioRaiseVolume   exec pamixer --increase 5
+bindsym XF86AudioLowerVolume   exec pamixer --decrease 5
+bindsym XF86AudioMute          exec pamixer --toggle-mute
+bindsym XF86AudioMicMute       exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 # Mouse settings
 focus_follows_mouse no
 mouse_warping none
 
 ### Status Bar
 
-exec --no-startup-id waybar
-
-#bar {
-#    position bottom
-#    binding_mode_indicator yes
-#    pango_markup enabled
-#    status_command exec ~/.config/sway/scripts/swaybar_status_command.sh
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
-#    }
-#}
+bar {
+    position bottom
+    binding_mode_indicator yes
+    font pango:Iosevka 12
+    pango_markup enabled
+    tray_output none
+    status_command $swaybar
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
 
 ### Gaps
 
