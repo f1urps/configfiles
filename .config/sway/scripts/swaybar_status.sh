@@ -5,6 +5,7 @@ function __swaybar_status {
     local interval='0.1'
     case "$(cat /etc/hostname)" in
         ripley) func=__swaybar_status_ripley;;
+        viviancox-glaptop) func=__swaybar_status_glaptop;;
         *) echo >&2 "Error: I don't know this machine!"; return 1;;
     esac
     while $func; do sleep $interval; done
@@ -18,11 +19,11 @@ function __swaybar_status_ripley {
     echo "$dropbox | $pacman | $volume | $datetime "
 }
 
-function __swaybar_status_work_laptop {
+function __swaybar_status_glaptop {
     local datetime="$(date +'%Y-%m-%d %I:%M:%S %p')"
     local volume="$(pamixer --get-volume-human)"
     local battery="$(__swaybar_status_battery)"
-    echo "| $battery | $volume | $datetime "
+    echo "$battery | $volume | $datetime "
 }
 
 function __swaybar_status_pacman {
