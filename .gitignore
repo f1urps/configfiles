@@ -1,2 +1,4 @@
 .config/neofetch/config.conf
 .config/sway/config
+.bashrc
+.bash_aliases
