@@ -1,0 +1,30 @@
+# vi: ft=i3config
+
+# Wallpaper
+set $wallpaper /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
+output * bg $wallpaper fill
+
+# Output settings
+# List outputs: swaymsg -t get_outputs
+# DP-2:         Dell
+# HDMI-A-1:     Asus
+# DP-3:         4k Idea Display
+output DP-2     resolution 1920x1080 position 0,0
+output HDMI-A-1 resolution 1920x1080 position 0,1080
+output DP-3     resolution 3840x2160 position 1920,720 scale 1.5
+
+# Pin workspaces to outputs
+workspace 1  output HDMI-A-1
+workspace 2  output HDMI-A-1
+workspace 3  output HDMI-A-1
+workspace 4  output DP-3
+workspace 9  output DP-2
+workspace 10 output DP-2
+
+# Input settings.
+# List inputs: swaymsg -t get_inputs
+# Disable caps lock on all keyboard type inputs.
+input "type:keyboard" {
+    xkb_options caps:none
+}
+

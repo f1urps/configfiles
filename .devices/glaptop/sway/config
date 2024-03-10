@@ -28,8 +28,7 @@ input "type:keyboard" {
     xkb_options caps:none
 }
 
-set $term           alacritty
-set $menu           swaymsg exec 'wofi --show drun --allow-images --no-actions --width 400'
+# Override these programs
 set $lock           swaylock -efc 000000
 set $browser        google-chrome --new-window
 set $filemgr        nautilus
@@ -37,5 +36,10 @@ set $mail           google-chrome --profile-directory='Profile 1' --app-id=fmgjj
 set $calendar       google-chrome --profile-directory='Profile 1' --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep
 set $ytm            google-chrome --profile-directory='Profile 1' --app-id=cinhimbnkkaeohfgghhklpknlkffjgod
 
-include ~/.config/sway/common
-include /etc/sway/config.d/*
+# Disable these programs
+set $steam          ''
+set $discord        ''
+set $todoist        ''
+set $exec_dropbox   ''
+set $exec_swayidle  ''
+
