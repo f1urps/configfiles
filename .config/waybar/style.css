@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: Iosevka;
     font-size: 13px;
 }
 
@@ -79,6 +79,7 @@ button:hover {
 #disk,
 #temperature,
 #backlight,
+#bluetooth,
 #network,
 #pulseaudio,
 #wireplumber,
@@ -87,6 +88,7 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
+#upower
 #mpd {
     padding: 0 10px;
     color: #ffffff;
@@ -111,6 +113,20 @@ button:hover {
     background-color: #64727D;
 }
 
+/*
+#battery,
+#pulseaudio,
+#backlight,
+#bluetooth {
+    background-color: #64727D;
+}
+*/
+
+#upower {
+    background-color: #64727D;
+}
+
+/*
 #battery {
     background-color: #ffffff;
     color: #000000;
@@ -120,6 +136,7 @@ button:hover {
     color: #ffffff;
     background-color: #26A65B;
 }
+*/
 
 @keyframes blink {
     to {
@@ -155,9 +172,11 @@ label:focus {
     background-color: #964B00;
 }
 
+/*
 #backlight {
     background-color: #90b1b1;
 }
+*/
 
 #network {
     background-color: #2980b9;
@@ -167,6 +186,7 @@ label:focus {
     background-color: #f53c3c;
 }
 
+/*
 #pulseaudio {
     background-color: #f1c40f;
     color: #000000;
@@ -176,6 +196,7 @@ label:focus {
     background-color: #90b1b1;
     color: #2a5c45;
 }
+*/
 
 #wireplumber {
     background-color: #fff0f5;

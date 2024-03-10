@@ -1,9 +1,33 @@
 {
     "layer": "top",
     "position": "bottom",
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["battery", "clock"],
+    "ipc": true,
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+    ],
+    "modules-right": [
+        "bluetooth",
+        "battery",
+        "backlight",
+        //"image#volume",
+        "pulseaudio",
+        "clock",
+    ],
     "clock": {
-        "format": "{:%Y-%m-%d %I:%M %p}"
-    }
+        "format": "{:%Y-%m-%d %I:%M %p}",
+    },
+    "image#volume": {
+        "exec": "echo ~/.config/waybar/icons/volume.png",
+        "size": 25,
+    },
+    "battery": {
+        "format": "Battery: {capacity}%",
+    },
+    "backlight": {
+        "format": "Brightness: {}%",
+    },
+    "pulseaudio": {
+        "format": "Volume: {volume}%",
+    },
 }
