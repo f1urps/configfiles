@@ -1,0 +1,57 @@
+# vi: ft=i3config
+
+# Wallpaper
+set $wallpaper /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
+output * bg $wallpaper fill
+
+# Output settings
+# List outputs: swaymsg -t get_outputs
+# DP-2:         Dell
+# HDMI-A-1:     Asus
+# DP-3:         4k Idea Display
+#output DP-2     resolution 1920x1080 position 0,0
+#output HDMI-A-1 resolution 1920x1080 position 0,1080
+#output DP-3     resolution 3840x2160 position 1920,720 scale 1.5
+
+# Pin workspaces to outputs
+#workspace 1  output HDMI-A-1
+#workspace 2  output HDMI-A-1
+#workspace 3  output HDMI-A-1
+#workspace 4  output DP-3
+#workspace 9  output DP-2
+#workspace 10 output DP-2
+
+# Input settings.
+# List inputs: swaymsg -t get_inputs
+# Disable caps lock on all keyboard type inputs.
+input "type:keyboard" {
+    xkb_options caps:none
+}
+
+set $term           alacritty
+set $menu           swaymsg exec 'wofi --show drun --allow-images --no-actions --width 400'
+set $lock           bash -c 'sleep 0.2; killall -USR1 swayidle'
+set $browser        firefox
+set $browser_alt    google-chrome --new-window
+set $filemgr        thunar
+#set $mail           google-chrome --profile-directory=Default --app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm
+set $mail           thunderbird
+#set $calendar       google-chrome --profile-directory=Default --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep
+#set $ytm            google-chrome --profile-directory=Default --app-id=cinhimbnkkaeohfgghhklpknlkffjgod
+set $discord        discord
+set $todoist        todoist
+
+# Mako runs automatically when a notification is sent
+exec makoctl reload
+
+# Screenshot keybindings
+bindsym Print       exec grimshot --notify save output
+bindsym Shift+Print	exec grimshot --notify save window
+bindsym Ctrl+Print  exec grimshot --notify save area
+
+#exec dropbox-cli start
+exec swayidle -w timeout 18000 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+
+include ~/.config/sway/common
+include /etc/sway/config.d/*
+

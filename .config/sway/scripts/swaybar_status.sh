@@ -6,6 +6,7 @@ function __swaybar_status {
     case "$(cat /etc/hostname)" in
         ripley) func=__swaybar_status_ripley;;
         viviancox-glaptop) func=__swaybar_status_glaptop;;
+	    grace) func=__swaybar_status_grace;;
         *) echo >&2 "Error: I don't know this machine!"; return 1;;
     esac
     while $func; do sleep $interval; done
@@ -17,6 +18,14 @@ function __swaybar_status_ripley {
     local pacman="$(__swaybar_status_pacman)"
     local dropbox="$(__swaybar_status_dropbox)"
     echo "$dropbox | $pacman | $volume | $datetime "
+}
+
+function __swaybar_status_grace {
+    local datetime="$(date +'%Y-%m-%d %I:%M:%S %p')"
+    local volume="$(pamixer --get-volume-human)"
+    local battery="$(__swaybar_status_battery)"
+    local pacman="$(__swaybar_status_pacman)"
+    echo "$dropbox | $pacman | $battery | $volume | $datetime "
 }
 
 function __swaybar_status_glaptop {
@@ -38,15 +47,15 @@ function __swaybar_status_pacman {
 }
 
 function __swaybar_status_dropbox {
-    local status="$(dropbox-cli status 2>/dev/null)"
+    local status="$(dropbox-cli status 2>/dev/null | head -n 1)"
     if echo "$status" | grep -q "Dropbox isn't running!"; then
-        echo "<span foreground=\"red\">!!</span>"
+        echo "<span foreground=\"red\">$status</span>"
     elif echo "$status" | grep -q 'Syncing'; then
-        echo "Syncing..."
+        echo "$status"
     elif echo "$status" | grep -q 'Up to date'; then
         echo "✓"
     else
-        echo "?"
+        echo "$status"
     fi
 }
 
