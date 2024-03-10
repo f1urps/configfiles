@@ -181,6 +181,9 @@ bindsym XF86AudioStop           exec playerctl stop
 bindsym XF86AudioPrev           exec playerctl previous
 bindsym XF86AudioNext           exec playerctl next
 
+# Alt media controls
+bindsym $mod+$alt+Space         exec playerctl play-pause
+
 # Brightness controls
 bindsym XF86MonBrightnessUp     exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown   exec brightnessctl set 10%-
