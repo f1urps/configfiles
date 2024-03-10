@@ -1,7 +1,8 @@
 # vi: ft=i3config
 
 # Wallpaper
-set $wallpaper /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
+#set $wallpaper /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
+set $wallpaper ~/pictures/wallpapers/nonon-vector.png
 output * bg $wallpaper fill
 
 # Input settings.
