@@ -1,5 +1,3 @@
-source /usr/share/vim/vim90/defaults.vim
-
 set number
 set expandtab
 set tabstop=4
