@@ -1,0 +1,29 @@
+# vi: ft=i3config
+
+# Scripts
+set $multimonitor   ~/.config/sway/scripts/multimonitor.py
+set $launcher       ~/.config/sway/scripts/launcher.py
+set $killall        ~/.config/sway/scripts/killall.py
+set $swaybar_status ~/.config/sway/scripts/swaybar_status.sh
+
+# Programs launched with keybindings
+set $term           alacritty
+set $menu           swaymsg exec 'wofi --show drun --allow-images --no-actions --width 400'
+set $lock           bash -c 'sleep 0.2; killall -USR1 swayidle'
+set $browser        firefox
+set $browser_alt    google-chrome --new-window
+set $filemgr        thunar
+set $mail           google-chrome --profile-directory=Default --app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm
+set $calendar       google-chrome --profile-directory=Default --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep
+set $ytm            google-chrome --profile-directory=Default --app-id=cinhimbnkkaeohfgghhklpknlkffjgod
+set $steam          steam
+set $discord        discord
+set $todoist        todoist
+
+# Programs launched at startup
+set $start_dropbox  dropbox-cli start
+set $start_swayidle swayidle -w timeout 18000 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+set $start_mako     mako
+set $reload_mako    makoctl reload
+set $reload_waybar  'bash -c "killall waybar; waybar"'
+

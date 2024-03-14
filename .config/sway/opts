@@ -1,0 +1,11 @@
+# vi: ft=i3config
+
+# Mouse settings
+focus_follows_mouse no
+mouse_warping none
+
+# Gaps
+gaps inner 10
+gaps outer 0
+smart_gaps on
+default_border pixel 2

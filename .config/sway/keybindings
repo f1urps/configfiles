@@ -1,41 +1,5 @@
 # vi: ft=i3config
 
-include /etc/sway/config.d/*
-
-# Scripts
-set $multimonitor   ~/.config/sway/scripts/multimonitor.py
-set $launcher       ~/.config/sway/scripts/launcher.py
-set $killall        ~/.config/sway/scripts/killall.py
-set $swaybar_status ~/.config/sway/scripts/swaybar_status.sh
-
-# Default programs
-# May be overridden by device config file
-set $term           alacritty
-set $menu           swaymsg exec 'wofi --show drun --allow-images --no-actions --width 400'
-set $lock           bash -c 'sleep 0.2; killall -USR1 swayidle'
-set $browser        firefox
-set $browser_alt    google-chrome --new-window
-set $filemgr        thunar
-set $mail           google-chrome --profile-directory=Default --app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm
-set $calendar       google-chrome --profile-directory=Default --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep
-set $ytm            google-chrome --profile-directory=Default --app-id=cinhimbnkkaeohfgghhklpknlkffjgod
-set $steam          steam
-set $discord        discord
-set $todoist        todoist
-set $start_dropbox  dropbox-cli start
-set $start_swayidle swayidle -w timeout 18000 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
-set $reload_mako    makoctl reload
-set $reload_waybar  'bash -c "killall waybar; waybar"'
-
-# Device config file
-include ~/.devices/this/sway/config
-
-# Start/reload programs
-exec        $start_dropbox
-exec        $start_swayidle
-exec_always $reload_mako
-exec_always $reload_waybar
-
 # Keys
 set $mod    Mod4
 set $alt    Mod1
@@ -193,28 +157,4 @@ bindsym Print                   exec grimshot --notify save output
 bindsym Shift+Print	            exec grimshot --notify save window
 bindsym Ctrl+Print              exec grimshot --notify save area
 
-# Mouse settings
-focus_follows_mouse no
-mouse_warping none
-
-## Swaybar
-#bar {
-#    position bottom
-#    binding_mode_indicator yes
-#    font pango:Iosevka 12
-#    pango_markup enabled
-#    tray_output none
-#    status_command $swaybar_status
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
-#    }
-#}
-
-# Gaps
-gaps inner 10
-gaps outer 0
-smart_gaps on
-default_border pixel 2
 
