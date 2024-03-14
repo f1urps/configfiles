@@ -28,3 +28,14 @@ input "type:keyboard" {
     xkb_options caps:none
 }
 
+include ~/.config/sway/vars
+include ~/.config/sway/keybindings
+include ~/.config/sway/opts
+include /etc/sway/config.d/*
+
+exec        $start_dropbox
+exec        $start_swayidle
+exec        $start_mako
+exec_always $reload_mako
+exec_always $reload_waybar
+

@@ -33,7 +33,6 @@ include ~/.config/sway/vars
 # Override programs used in keybindings
 set $lock           swaylock -efc 000000
 set $browser        google-chrome --new-window
-set $filemgr        nautilus
 set $mail           google-chrome --profile-directory='Profile 1' --app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm
 set $calendar       google-chrome --profile-directory='Profile 1' --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep
 set $ytm            google-chrome --profile-directory='Profile 1' --app-id=cinhimbnkkaeohfgghhklpknlkffjgod
@@ -41,13 +40,12 @@ set $steam          ''
 set $discord        ''
 set $todoist        ''
 
-# Start/reload programs
-exec        $start_swayidle
-exec        $start_mako
-exec_always $reload_mako
-exec_always $reload_waybar
-
 include ~/.config/sway/keybindings
 include ~/.config/sway/opts
 include /etc/sway/config.d/*
+
+# Start/reload programs
+exec        $start_mako
+exec_always $reload_mako
+exec_always $reload_waybar
 
