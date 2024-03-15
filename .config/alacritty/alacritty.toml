@@ -54,7 +54,7 @@ style = "Bold Italic"
 style = "Italic"
 
 [font.normal]
-family = "Iosevka Term"
+family = "JetBrains Mono"
 style = "Regular"
 
 [window]
