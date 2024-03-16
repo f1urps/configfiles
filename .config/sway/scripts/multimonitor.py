@@ -57,10 +57,12 @@ def output_of_workspace(ws):
         if op.name == ws.ipc_data['output']:
             return op
 
-def new_workspace():
-    used_nums = [ws.num for ws in sway.get_workspaces()]
-    n = 1
-    while n in used_nums:
+def new_workspace(op):
+    # Get the next unused workspace number on this output.
+    # The "next" number is the smallest unused workspace number after the smallest used workspace number on this output.
+    used_nums_on_output = [ws.num for ws in sway.get_workspaces() if ws.output == op.name]
+    n = min(used_nums_on_output)
+    while n in used_nums_on_output:
         n += 1
     ws = types.SimpleNamespace()
     ws.num = n
@@ -86,7 +88,13 @@ def move_container_to_workspace(c, ws):
     sway.command('[con_id="{}"] move container to workspace number {}'.format(c.id, ws.num))
 
 def move_workspace_to_output(ws, op):
-    sway.command('[workspace="{}"] move workspace to output {}'.format(ws.name, op.name))
+    # No way to do this on an empty workspace without focusing on it.
+    initial_ws = current_workspace()
+    sway.command('workspace "{}", move workspace to output {}'.format(ws.name, op.name))
+    focus_workspace(initial_ws)
+
+def move_workspace_to_output_and_focus(ws, op):
+    sway.command('workspace "{}", move workspace to output {}'.format(ws.name, op.name))
 
 def move_container_to_output(c, op):
     move_container_to_workspace(c, current_workspace_on_output(op))
@@ -100,7 +108,6 @@ def move_focused_workspace_to_output(op):
 def move_focused_container_to_output(op):
     move_container_to_output(current_container(), op)
 
-
 def cycle_outputs_next():
     outputs = sway.get_outputs()
     new_assignments = {}
@@ -110,8 +117,7 @@ def cycle_outputs_next():
         new_assignments[next_op] = workspaces_on_output(outputs[i])
     for op, workspaces in new_assignments.items():
         for ws in workspaces:
-            if not workspace_is_empty(ws):
-                move_workspace_to_output(ws, op)
+            move_workspace_to_output_and_focus(ws, op)
     focus_workspace(starting_ws)
 
 def cycle_outputs_prev():
@@ -141,12 +147,15 @@ def handle(arg):
             focus_workspace(prev_workspace_on_output(current_output()))
 
         case "focus_new_workspace":
-            ws = new_workspace()
-            focus_workspace(ws)
+            op = current_output()
+            ws = new_workspace(op)
+            move_workspace_to_output_and_focus(ws, op)
 
         case "move_container_to_new_workspace":
             c = current_container()
-            ws = new_workspace()
+            op = current_output()
+            ws = new_workspace(op)
+            move_workspace_to_output_and_focus(ws, op)
             move_container_to_workspace(c, ws)
             focus_container(c)
 
