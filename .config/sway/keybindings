@@ -124,8 +124,8 @@ mode "run" {
     bindsym y       exec $ytm;                      mode "default"
     bindsym Shift+w exec $launcher;                 mode "default"
     bindsym Shift+c exec $killall;                  mode "default"
-    bindsym Shift+r exec bash -c 'shutdown now';    mode "default"
-    bindsym Shift+s exec bash -c 'reboot';          mode "default"
+    bindsym Shift+s exec bash -c 'shutdown now';    mode "default"
+    bindsym Shift+r exec bash -c 'reboot';          mode "default"
 
     # Return to default mode
     bindsym Return mode "default"
