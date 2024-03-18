@@ -1,8 +1,25 @@
 # vi: ft=i3config
 
-# Wallpaper
-set $wallpaper /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
-output * bg $wallpaper fill
+set $wallpaper_1    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/DP-2.png    
+set $wallpaper_2    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/HDMI-A-1.png
+set $wallpaper_3    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/DP-3.png    
+
+#set $wallpaper_1    /home/vivian/pictures/wallpapers-multimonitor/spread/out/DP-2.png    
+#set $wallpaper_2    /home/vivian/pictures/wallpapers-multimonitor/spread/out/HDMI-A-1.png
+#set $wallpaper_3    /home/vivian/pictures/wallpapers-multimonitor/spread/out/DP-3.png    
+
+#set $wallpaper_1    /home/vivian/pictures/wallpapers/lewd_gray_4.png
+#set $wallpaper_2    /home/vivian/pictures/wallpapers/lewd_gray_5.png
+#set $wallpaper_3    /home/vivian/pictures/wallpapers/lewd_gray_8.png
+
+#set $wallpaper_1    /home/vivian/pictures/wallpapers-multimonitor/chiaki/DP-2.png    
+#set $wallpaper_2    /home/vivian/pictures/wallpapers-multimonitor/chiaki/HDMI-A-1.png
+#set $wallpaper_3    /home/vivian/pictures/wallpapers-multimonitor/chiaki/DP-3.png    
+#set $wallpaper_3    /home/vivian/pictures/wallpapers/lewd_pink_minimalist_filtered.jpg
+
+output DP-2         bg $wallpaper_1 fill
+output HDMI-A-1     bg $wallpaper_2 fill
+output DP-3         bg $wallpaper_3 fill
 
 # Output settings
 # List outputs: swaymsg -t get_outputs
