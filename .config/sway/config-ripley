@@ -1,5 +1,14 @@
 # vi: ft=i3config
 
+# Output settings
+# List outputs: swaymsg -t get_outputs
+set $monitor_top        DP-2
+set $monitor_left       HDMI-A-1
+set $monitor_right      DP-3
+output $monitor_top     resolution 1920x1080 position 0,0
+output $monitor_left    resolution 1920x1080 position 0,1080
+output $monitor_right   resolution 3840x2160 position 1920,720 scale 1.5
+
 set $wallpaper_1    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/DP-2.png    
 set $wallpaper_2    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/HDMI-A-1.png
 set $wallpaper_3    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/DP-3.png    
@@ -17,26 +26,17 @@ set $wallpaper_3    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/DP-3
 #set $wallpaper_3    /home/vivian/pictures/wallpapers-multimonitor/chiaki/DP-3.png    
 #set $wallpaper_3    /home/vivian/pictures/wallpapers/lewd_pink_minimalist_filtered.jpg
 
-output DP-2         bg $wallpaper_1 fill
-output HDMI-A-1     bg $wallpaper_2 fill
-output DP-3         bg $wallpaper_3 fill
-
-# Output settings
-# List outputs: swaymsg -t get_outputs
-# DP-2:         Dell
-# HDMI-A-1:     Asus
-# DP-3:         4k Idea Display
-output DP-2     resolution 1920x1080 position 0,0
-output HDMI-A-1 resolution 1920x1080 position 0,1080
-output DP-3     resolution 3840x2160 position 1920,720 scale 1.5
+output $monitor_top     bg $wallpaper_1 fill
+output $monitor_left    bg $wallpaper_2 fill
+output $monitor_right   bg $wallpaper_3 fill
 
 # Pin workspaces to outputs
-workspace 1  output HDMI-A-1
-workspace 2  output HDMI-A-1
-workspace 3  output HDMI-A-1
-workspace 4  output DP-3
-workspace 9  output DP-2
-workspace 10 output DP-2
+workspace 1  output $monitor_left
+workspace 2  output $monitor_left
+workspace 3  output $monitor_left
+workspace 4  output $monitor_right
+workspace 9  output $monitor_top
+workspace 10 output $monitor_top
 
 # Input settings.
 # List inputs: swaymsg -t get_inputs

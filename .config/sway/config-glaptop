@@ -6,20 +6,20 @@ output * bg $wallpaper fill
 
 # Output settings
 # List outputs: swaymsg -t get_outputs
-# DP-2:         Left monitor
-# DP-1:         Right monitor
-# eDP-1:        Laptop screen
-output DP-2  pos 0    0 res 2560x1440
-output DP-1  pos 2560 0 res 2560x1440
-output eDP-1 pos 5120 0 res 1920x1080
+set $monitor_left   DP-2
+set $monitor_right  DP-3
+set $laptop_screen  eDP-1
+output $monitor_left   pos 0    0 res 2560x1440
+output $monitor_right  pos 2560 0 res 2560x1440
+output $laptop_screen  pos 5120 0 res 1920x1080
 
 # Pin workspaces to outputs
-workspace 1  output DP-2
-workspace 2  output DP-2
-workspace 3  output DP-2
-workspace 4  output DP-1
-workspace 9  output eDP-1
-workspace 10 output eDP-1
+workspace 1  output $monitor_left
+workspace 2  output $monitor_left
+workspace 3  output $monitor_left
+workspace 4  output $monitor_right
+workspace 9  output $laptop_screen
+workspace 10 output $laptop_screen
 
 # Input settings.
 # List inputs: swaymsg -t get_inputs
@@ -33,9 +33,6 @@ include ~/.config/sway/vars
 # Override programs used in keybindings
 set $lock           swaylock -efc 000000
 set $browser        google-chrome --new-window
-set $mail           google-chrome --profile-directory='Profile 1' --app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm
-set $calendar       google-chrome --profile-directory='Profile 1' --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep
-set $ytm            google-chrome --profile-directory='Profile 1' --app-id=cinhimbnkkaeohfgghhklpknlkffjgod
 set $steam          ''
 set $discord        ''
 set $todoist        ''
@@ -48,4 +45,5 @@ include /etc/sway/config.d/*
 exec        $start_mako
 exec_always $reload_mako
 exec_always $reload_waybar
+exec        "ssh-agent -a $SSH_AUTH_SOCK"
 
