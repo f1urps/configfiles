@@ -83,14 +83,15 @@ def programs_to_launch():
                 ),
             ]
             
-        case "viviancox-glaptop":
+        case "viviancox-glaptop2":
             return [
                 Program(
                     name            = 'youtube_music',
                     workspace       = "9",
-                    cmd             = 'google-chrome "--profile-directory=Profile 1" ' +
+                    cmd             = 'google-chrome "--profile-directory=Default" ' +
                                         '"--app-id=cinhimbnkkaeohfgghhklpknlkffjgod"',
-                    matcher         = match_by_app_id('chrome-cinhimbnkkaeohfgghhklpknlkffjgod-Profile_1'),
+                    matcher         = match_chrome_app('cinhimbnkkaeohfgghhklpknlkffjgod'),
+                    enabled         = False,
                 ),
                 Program(
                     name            = 'term_cava',
@@ -98,12 +99,14 @@ def programs_to_launch():
                     cmd             = 'alacritty --class term_cava --command cava',
                     matcher         = match_by_app_id('term_cava'),
                     post_swaycmd    = 'move up, resize set height 200px, focus next',
+                    enabled         = False,
                 ),
                 Program(
                     name            = 'term_stui',
                     workspace       = "10",
                     cmd             = 'alacritty --class term_stui --command s-tui',
                     matcher         = match_by_app_id('term_stui'),
+                    enabled         = False,
                 ),
                 Program(
                     name            = 'term_htop',
@@ -111,6 +114,7 @@ def programs_to_launch():
                     cmd             = 'alacritty --class term_htop --command htop',
                     matcher         = match_by_app_id('term_htop'),
                     post_swaycmd    = 'focus',
+                    enabled         = False,
                 ),
                 Program(
                     name            = 'term_work',
@@ -122,22 +126,24 @@ def programs_to_launch():
                     name            = 'empty_browser',
                     workspace       = "2",
                     cmd             = 'google-chrome --new-window',
-                    matcher         = match_by_app_id('google-chrome'),
-                ),
-                Program(
-                    name            = 'gmail',
-                    workspace       = "1",
-                    cmd             = 'google-chrome "--profile-directory=Profile 1" ' +
-                                        '"--app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm"',
-                    matcher         = match_by_app_id('chrome-fmgjjmmmlfnkbppncabfkddbjimcfncm-Profile_1'),
+                    #matcher         = match_by_app_id('google-chrome'),
+                    matcher         = match_by_window_props("Google-chrome", "google-chrome"),
+
                 ),
                 Program(
                     name            = 'calendar',
                     workspace       = "1",
-                    cmd             = 'google-chrome "--profile-directory=Profile 1" ' +
+                    cmd             = 'google-chrome "--profile-directory=Default" ' +
                                         '"--app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep"',
-                    matcher         = match_by_app_id('chrome-kjbdgfilnfhdoflbpgamdcdgpehopbep-Profile_1'),
-                    post_swaycmd    = 'move left, resize set width 25ppt, focus next',
+                    matcher         = match_chrome_app('kjbdgfilnfhdoflbpgamdcdgpehopbep'),
+                ),
+                Program(
+                    name            = 'gmail',
+                    workspace       = "1",
+                    cmd             = 'google-chrome "--profile-directory=Default" ' +
+                                        '"--app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm"',
+                    matcher         = match_chrome_app('fmgjjmmmlfnkbppncabfkddbjimcfncm'),
+                    post_swaycmd    = 'resize set width 75ppt',
                 ),
             ]
 
