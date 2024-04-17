@@ -12,3 +12,5 @@ nnoremap <CR> :noh<CR><CR>
 " https://github.com/vim/vim/issues/10231
 highlight link i3ConfigError Normal
 
+map <leader>D :put =strftime('%a %Y-%m-%d %I:%M %p')<CR>
+
