@@ -9,9 +9,9 @@ output $monitor_top     resolution 1920x1080 position 0,0
 output $monitor_left    resolution 1920x1080 position 0,1080
 output $monitor_right   resolution 3840x2160 position 1920,720 scale 1.5
 
-set $wallpaper_1    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/DP-2.png    
-set $wallpaper_2    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/HDMI-A-1.png
-set $wallpaper_3    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/DP-3.png    
+#set $wallpaper_1    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/DP-2.png    
+#set $wallpaper_2    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/HDMI-A-1.png
+#set $wallpaper_3    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/DP-3.png    
 
 #set $wallpaper_1    /home/vivian/pictures/wallpapers-multimonitor/spread/out/DP-2.png    
 #set $wallpaper_2    /home/vivian/pictures/wallpapers-multimonitor/spread/out/HDMI-A-1.png
@@ -25,6 +25,10 @@ set $wallpaper_3    /home/vivian/pictures/wallpapers-multimonitor/puppygirl/DP-3
 #set $wallpaper_2    /home/vivian/pictures/wallpapers-multimonitor/chiaki/HDMI-A-1.png
 #set $wallpaper_3    /home/vivian/pictures/wallpapers-multimonitor/chiaki/DP-3.png    
 #set $wallpaper_3    /home/vivian/pictures/wallpapers/lewd_pink_minimalist_filtered.jpg
+
+set $wallpaper_1    /home/vivian/Dropbox/pictures/wallpapers/desktop/wp2782414.jpg
+set $wallpaper_2    $wallpaper_1
+set $wallpaper_3    $wallpaper_1
 
 output $monitor_top     bg $wallpaper_1 fill
 output $monitor_left    bg $wallpaper_2 fill
