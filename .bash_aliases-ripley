@@ -6,7 +6,7 @@
 # Remap well-known commands
 alias df='df -h'
 alias vim='nvim'
-alias ls='eza --color=always'
+alias ls='exa --color=always'
 alias cmatrix='cmatrix -C blue'
 
 # Shortcuts
